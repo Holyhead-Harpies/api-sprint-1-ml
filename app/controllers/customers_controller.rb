@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-    before_action :set_customer, only: [:show, :update, :destroy]
+    before_action :set_customer, only: [:show, :update]
 
     # GET /customers
     def index
@@ -17,6 +17,8 @@ class CustomersController < ApplicationController
     def create
         @customer = Customer.new(customer_params)
 
+        @customer.activity_status = true
+        
         if @customer.save
             render json: @customer, status: :created, location: @customer
         else
@@ -24,6 +26,10 @@ class CustomersController < ApplicationController
         end
     end
 
+    def destroy
+        raise "Sorry no can do buckaroo."
+    end
+    
     # PATCH/PUT /customers/1
     def update
         if @customer.update(customer_params)
@@ -32,7 +38,7 @@ class CustomersController < ApplicationController
             render json: @customer.errors, status: :unprocessable_entity
         end
     end
-
+    
     private
     # Use callbacks to share common setup or constraints between actions.
     def set_customer
@@ -41,6 +47,6 @@ class CustomersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def customer_params
-        params.permit(:first_name, :last_name, :activity_status)
+        params.permit(:first_name, :last_name)
     end
 end
