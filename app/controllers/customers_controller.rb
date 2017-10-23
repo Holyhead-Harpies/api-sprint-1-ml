@@ -41,6 +41,6 @@ class CustomersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def customer_params
-        params.fetch(:customer, {})
+        params.permit(:first_name, :last_name, :activity_status)
     end
 end
