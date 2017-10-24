@@ -46,6 +46,6 @@ class ProductTypesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def product_type_params
-        params.fetch(:product_type, {})
+        params.require(:product_type).permit(:product_type_name)
     end
 end
