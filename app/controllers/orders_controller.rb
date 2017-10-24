@@ -15,13 +15,23 @@ class OrdersController < ApplicationController
 
     # POST /orders
     def create
-        @order = Order.new(order_params)
+        @customer = Customer.find(order_params[:customer_id])
+        if @customer.check_pt?(order_params[:payment_type_id])
 
-        if @order.save
-            render json: @order, status: :created, location: @order
+            @order = Order.new(order_params)
+    
+            @order.amount_paid = 0.00
+    
+            if @order.save
+                render json: @order, status: :created, location: @order
+            else
+                render json: @order.errors, status: :unprocessable_entity
+            end
+
         else
-            render json: @order.errors, status: :unprocessable_entity
+            raise "Payment Type not associated with customer.... buckaroo"
         end
+
     end
 
     # PATCH/PUT /orders/1
@@ -46,6 +56,6 @@ class OrdersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def order_params
-        params.fetch(:order, {})
+        params.permit(:customer_id, :payment_type_id)
     end
 end

@@ -6,4 +6,6 @@ class Order < ApplicationRecord
 
     has_and_belongs_to_many :products
 
+    validates :customer_id, presence: true, uniqueness: true
+
 end
