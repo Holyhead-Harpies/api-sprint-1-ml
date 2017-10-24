@@ -16,11 +16,24 @@ class EmployeesController < ApplicationController
     # POST /employees
     def create
         @employee = Employee.new(employee_params)
+        if @employee.supervisor_status == nil
+            @employee.supervisor_status = false
+        end
 
-        if @employee.save
-            render json: @employee, status: :created, location: @employee
+        if @employee.supervisor_status
+            if check_supervisor(@employee)
+                if @employee.save
+                    render json: @employee, status: :created, location: @employee
+                else
+                    render json: @employee.errors, status: :unprocessable_entity
+                end
+            end
         else
-            render json: @employee.errors, status: :unprocessable_entity
+            if @employee.save
+                    render json: @employee, status: :created, location: @employee
+            else
+                render json: @employee.errors, status: :unprocessable_entity
+            end
         end
     end
 
@@ -41,6 +54,17 @@ class EmployeesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def employee_params
-        params.fetch(:employee, {})
+        params.permit(:first_name, :last_name, :department_id, :supervisor_status)
+    end
+
+    # check to see if a department already has a supervisor
+    def check_supervisor(employee)
+        employees_of_same_dep = Employee.where(department_id: employee.department_id)
+
+        if employees_of_same_dep.exists?(supervisor_status: true)
+            false
+        else
+            true
+        end
     end
 end
