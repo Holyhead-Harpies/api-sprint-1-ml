@@ -46,6 +46,6 @@ class ComputersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def computer_params
-        params.fetch(:computer, {})
+        params.permit(:id, :commission_date, :decommission_date)
     end
 end
