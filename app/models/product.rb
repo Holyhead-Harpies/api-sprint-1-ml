@@ -6,4 +6,6 @@ class Product < ApplicationRecord
 
     has_and_belongs_to_many :orders
 
+    validates :product_type_id, :customer_id, presence: true
+
 end

@@ -6,4 +6,6 @@ class Employee < ApplicationRecord
 
     belongs_to :department
 
+    validates :first_name, :last_name, :department_id, presence: true
+
 end
