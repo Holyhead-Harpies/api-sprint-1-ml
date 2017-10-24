@@ -36,10 +36,15 @@ class OrdersController < ApplicationController
 
     # PATCH/PUT /orders/1
     def update
-        if @order.update(order_params)
-            render json: @order
+        @customer = Customer.find(@order.customer_id)
+        if @customer.check_pt?(order_params[:payment_type_id])
+            if @order.update(order_params)
+                render json: @order
+            else
+                render json: @order.errors, status: :unprocessable_entity
+            end
         else
-            render json: @order.errors, status: :unprocessable_entity
+            raise "Payment Type not associated with customer.... buckaroo"
         end
     end
 
