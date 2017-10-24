@@ -10,6 +10,7 @@
 # ##DATA SEEDING USING FAKER GEM (.....mainly)
 #
 # COMPUTER
+
 20.times do
    Computer.create([{
        commission_date: Faker::Date.backward(30)
@@ -17,6 +18,7 @@
 end
 
 # CUSTOMER
+
 50.times do
     Customer.create([{
         first_name: Faker::Name.first_name,
@@ -26,6 +28,7 @@ end
 end
 
 # DEPARTMENT
+
 5.times do
     Department.create([{
         department_name: Faker::Company.name,
@@ -34,6 +37,7 @@ end
 end
 
 # EMPLOYEE
+
 13.times do
     Employee.create([{
         first_name: Faker::Name.first_name,
@@ -44,6 +48,7 @@ end
 end
 
 # EMPLOYEE COMPUTER
+
 20.times do
     EmployeeComputer.create([{
         assignment_date: Faker::Date.backward(30),
@@ -53,6 +58,7 @@ end
 end
 
 # ISSUING BANK
+
 10.times do
     IssuingBank.create([{
         issuer_name: Faker::Business.unique.credit_card_type
@@ -60,6 +66,7 @@ end
 end
 
 # PRODUCT TYPE
+
 15.times do
     ProductType.create([{
         product_type_name: Faker::Commerce.unique.department(1, true)
@@ -67,6 +74,7 @@ end
 end
 
 # PRODUCT
+
 100.times do
     Product.create([{
         product_name: Faker::Commerce.product_name,
@@ -80,6 +88,7 @@ end
 end
 
 # TRAINING PROGRAM
+
 5.times do
     end_date = Faker::Time.between(15.days.ago, Date.today, :morning)
     TrainingProgram.create([{
@@ -91,6 +100,7 @@ end
 end
 
 # PAYMENT TYPES
+
 75.times do
     PaymentType.create([{
         account_number: Faker::Business.credit_card_number,
@@ -101,6 +111,7 @@ end
 end
 
 # ORDER
+
 pay_ids = PaymentType.all.ids
 used_customers = Array.new
 
@@ -123,6 +134,7 @@ used_customers = Array.new
 end
 
 # EMPLOYEE TRAINING PROGRAM
+
 emp_ids = Employee.all.ids
 train_ids = TrainingProgram.all.ids
 
@@ -136,7 +148,7 @@ train_ids = TrainingProgram.all.ids
 
 end
 
-# ORDER PRODUCT
+
 order_ids = Order.all.ids
 product_ids = Product.all.ids
 
