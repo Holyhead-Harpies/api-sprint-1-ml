@@ -41,6 +41,6 @@ class DepartmentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def department_params
-        params.fetch(:department, {})
+        params.permit(:department_name, :budget)
     end
 end
