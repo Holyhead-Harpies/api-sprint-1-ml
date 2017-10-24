@@ -53,4 +53,6 @@ class TrainingProgramsController < ApplicationController
     def training_program_params
         params.permit(:program_name, :start_date_time, :end_date_time, :attendee_max)
     end
+
+    
 end
