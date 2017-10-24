@@ -48,7 +48,7 @@ end
     Employee.create([{
         first_name: Faker::Name.first_name,
         last_name: Faker::Name.last_name,
-        status: Faker::Boolean.boolean(0),
+        supervisor_status: Faker::Boolean.boolean(0),
         department_id: rand(1..5)
     }])
 end
