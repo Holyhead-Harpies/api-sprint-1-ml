@@ -9,7 +9,9 @@
 #
 # ##DATA SEEDING USING FAKER GEM (.....mainly)
 #
+
 # COMPUTER
+
 
 20.times do
    Computer.create([{
@@ -19,6 +21,7 @@ end
 
 # CUSTOMER
 
+
 50.times do
     Customer.create([{
         first_name: Faker::Name.first_name,
@@ -27,7 +30,9 @@ end
     }])
 end
 
+
 # DEPARTMENT
+
 
 5.times do
     Department.create([{
@@ -37,6 +42,7 @@ end
 end
 
 # EMPLOYEE
+
 
 13.times do
     Employee.create([{
@@ -58,6 +64,7 @@ end
 end
 
 # ISSUING BANK
+
 
 10.times do
     IssuingBank.create([{
@@ -112,6 +119,7 @@ end
 
 # ORDER
 
+
 pay_ids = PaymentType.all.ids
 used_customers = Array.new
 
@@ -148,7 +156,7 @@ train_ids = TrainingProgram.all.ids
 
 end
 
-
+# ORDER PRODUCT
 order_ids = Order.all.ids
 product_ids = Product.all.ids
 
