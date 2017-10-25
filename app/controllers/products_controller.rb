@@ -1,16 +1,19 @@
 class ProductsController < ApplicationController
+
+    require 'pry'
+
     before_action :set_product, only: [:show, :update, :destroy]
 
     # GET /products
     def index
         @products = Product.all
 
-        render json: @products
+        render json: @products, each_serializer: nil
     end
 
     # GET /products/1
     def show
-        render json: @product
+        render json: @product, adapter: nil
     end
 
     # POST /products

@@ -1,18 +1,35 @@
 class OrdersController < ApplicationController
-
-    require 'pry'
-
+    
     before_action :set_order, only: [:show, :update, :destroy]
 
     # GET /orders
     def index
         @orders = Order.all
-        @orders.each{|a| a = 1}
-        render json: @orders
+       
+        render json: @orders, each_serializer: nil
     end
 
     # GET /orders/1
     def show
+        
+        # @order.products.each{|x| x[:quantity] = 1}
+        # myshit = @order.products.group_by{|x| x[:id]}
+        # keys = myshit.keys
+        # newitem = []
+        # keys.each_with_index {|item,index|
+        #     if myshit[item].length > 1
+        #         myshit[item].first[:quantity] = myshit[item].length
+        #         newitem <<myshit[item].first
+        #     else
+        #         newitem << myshit[item].first
+        #     end
+
+        # }
+        # @order = Order.find(params[:id])
+        # @order.products = []
+        # @order.products = newitem
+        # render json: newitem
+
         render json: @order
     end
 
