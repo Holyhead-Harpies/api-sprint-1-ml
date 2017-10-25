@@ -14,6 +14,7 @@ class OrdersController < ApplicationController
         render json: @order
     end
 
+
     # POST /orders
     def create
         @customer = Customer.find(order_params[:customer_id])
