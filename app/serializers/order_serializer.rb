@@ -1,3 +1,4 @@
 class OrderSerializer < ActiveModel::Serializer
-  attributes *Tag.column_names
+  attributes :id, :customer_id, :payment_type_id
+  has_many :products
 end

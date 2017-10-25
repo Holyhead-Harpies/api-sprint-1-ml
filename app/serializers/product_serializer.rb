@@ -1,3 +1,3 @@
 class ProductSerializer < ActiveModel::Serializer
-  attributes *Tag.column_names
+  attributes :id, :product_name, :price, :quantity
 end
