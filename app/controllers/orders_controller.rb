@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
     # GET /orders
     def index
         @orders = Order.all
-
+        @orders.each{|a| a = 1}
         render json: @orders
     end
 
