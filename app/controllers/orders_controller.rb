@@ -1,7 +1,5 @@
 class OrdersController < ApplicationController
-
-    require 'pry'
-
+    
     before_action :set_order, only: [:show, :update, :destroy]
 
     # GET /orders
