@@ -1,25 +1,75 @@
-# README
+# Bangazon API (Sprint #1)
+This is the API for interacting with the Bangazon database. The database includes tables for data about employees, departments, training programs, and employee computers.  The database also includes customers, products, orders, and payment information.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting Started
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-Things you may want to cover:
+### Prerequisites
+The Bangazon API uses Ruby version 2.4.2, Rails version 5.1.4, and SQLite version 3.1.6.  You will also need to install the Bundle gem.
 
-* Ruby version
+### Installing
+1. Clone the Bangazon API repository and move to the api directory
+```
+git clone https://github.com/Holyhead-Harpies/api-sprint-1-ml.git & cd $_
+```
+2. Install the gem dependencies
+```
+bundle install
+```
+3. Set up the database
+```
+rails db:migrate
+```
+4.  Seed the database using Faker
+```
+rails db:seed
+```
+5. Run the rails server. The api will be available at http://localhost:3000
+```
+rails s
+```
+## Testing
+The Bangazon API makes use of the Rspec gem. To set up the Rspec directories, run:
+```
+rails g rspec:install
+```
 
-* System dependencies
+To run tests enter:
+```
+bundle exec rspec
+```
 
-* Configuration
+## Using the API
+The following end points are available when the API server is running:
+Developers can access, add, edit, and delete records from the following resources:
+ * Customers
+ * Products
+ * Payment Types
+ * Products
+ * Orders
+ * Computers and
+ * Training Programs
+ * All customers without orders can be displayed
+ * Orders queried also return an array of products in the order
 
-* Database creation
+The following limitations have been put on data resources:
+* Customers cannot be deleted
+* Employees cannot be deleted
+* Only one department can have a supervisor (only one employee per department can be amrked as a supervisor)
+* A computer cannot have a decommissioned date that precedes the commissioned date
+* A training program cannot be deleted after its start date
 
-* Database initialization
+The API has a CORS policy set so that the API can only be accessed from a specified domain.
 
-* How to run the test suite
+## Contributors
 
-* Services (job queues, cache servers, search engines, etc.)
+Gilbert Diaz
 
-* Deployment instructions
+Bryon Larrance
 
-* ...
-# api-sprint-1-ml
+Michael Lindstromm
+
+Fang W. Shen
+
+Jeremy Wells
+
