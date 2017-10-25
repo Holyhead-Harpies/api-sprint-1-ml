@@ -63,13 +63,13 @@ The API has a CORS policy set so that the API can only be accessed from a specif
 
 ## Contributors
 
-Gilbert Diaz
+[Gilbert Diaz](https://github.com/diazgilberto)
 
-Bryon Larrance
+[Bryon Larrance](https://github.com/beelarr)
 
-Michael Lindstromm
+[Michael Lindstromm](https://github.com/michaellindstromm)
 
-Fang W. Shen
+[Fang W. Shen](https://github.com/fang-w-shen)
 
-Jeremy Wells
+[Jeremy Wells](https://github.com/jsheridanwells)
 
