@@ -29,7 +29,12 @@ rails db:seed
 rails s
 ```
 ## Testing
-The Bangazon API makes use of the Rspec gem. To run tests enter:
+The Bangazon API makes use of the Rspec gem. To set up the Rspec directories, run:
+```
+rails g rspec:install
+```
+
+To run tests enter:
 ```
 bundle exec rspec
 ```
