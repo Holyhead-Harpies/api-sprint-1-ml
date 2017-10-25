@@ -3,9 +3,7 @@ class Order < ApplicationRecord
     require 'pry'
 
     has_many :customers
-
     has_many :payment_types
-
     has_and_belongs_to_many :products
 
     validates :customer_id, presence: true
