@@ -24,18 +24,11 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
-<<<<<<< HEAD
-    active_model_serializers (0.10.0)
-      actionpack (>= 4.0)
-      activemodel (>= 4.0)
-      railties (>= 4.0)
-=======
     active_model_serializers (0.10.6)
       actionpack (>= 4.1, < 6)
       activemodel (>= 4.1, < 6)
       case_transform (>= 0.2)
       jsonapi-renderer (>= 0.1.1.beta1, < 0.2)
->>>>>>> 6fbbbd4365050847f6c9d67cfe5734b183266dfb
     activejob (5.1.4)
       activesupport (= 5.1.4)
       globalid (>= 0.3.6)
