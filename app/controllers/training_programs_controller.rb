@@ -34,12 +34,13 @@ class TrainingProgramsController < ApplicationController
     end
 
 
-    # PUT CONDITION TO ONLY ALLOW IF....
-    # START DATE IS IN THE FUTURE
-
     # DELETE /training_programs/1
     def destroy
-        @training_program.destroy
+        if @training_program.start_date_time > DateTime.now
+            @training_program.destroy
+        else
+            raise "Cannot delete programs that have already started"
+        end
     end
 
     private
@@ -50,6 +51,8 @@ class TrainingProgramsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def training_program_params
-        params.fetch(:training_program, {})
+        params.permit(:program_name, :start_date_time, :end_date_time, :attendee_max)
     end
+
+    
 end
