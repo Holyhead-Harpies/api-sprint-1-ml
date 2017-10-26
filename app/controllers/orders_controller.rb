@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
 
     # GET /orders/1
     def show
+
         
         # @order.products.each{|x| x[:quantity] = 1}
         # myshit = @order.products.group_by{|x| x[:id]}
