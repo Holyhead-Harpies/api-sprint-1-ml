@@ -42,14 +42,14 @@ bundle exec rspec
 ## Using the API
 The following end points are available when the API server is running:
 Developers can access, add, edit, and delete records from the following resources:
- * Customers  -  /customers & /customers/id GET, POST, PATCH
- * Employees  -  /employees & /employees/id GET, POST, PATCH
- * Products  -  /products & /products/id GET, POST, PATCH, DELETE
- * Payment Types  -  /payment_types & /payment_types/id GET, POST, PATCH, DELETE
- * Products  -  /products & /products/id GET, POST, PATCH, DELETE
- * Orders  -  /orders & /orders/id GET, POST, PATCH, DELETE
- * Computers  -  /computers & /computers/id GET, POST, PATCH, DELETE
- * Training Programs  -  /training_programs & /training_programs/id GET, POST, PATCH, DELETE
+ * Customers  -  /customers & /customers/id [GET, POST, PATCH]
+ * Employees  -  /employees & /employees/id [GET, POST, PATCH]
+ * Products  -  /products & /products/id [GET, POST, PATCH, DELETE]
+ * Payment Types  -  /payment_types & /payment_types/id [GET, POST, PATCH, DELETE]
+ * Products  -  /products & /products/id [GET, POST, PATCH, DELETE]
+ * Orders  -  /orders & /orders/id [GET, POST, PATCH, DELETE]
+ * Computers  -  /computers & /computers/id [GET, POST, PATCH, DELETE]
+ * Training Programs  -  /training_programs & /training_programs/id [GET, POST, PATCH, DELETE]
 
  * All customers without orders can be displayed /customers/?active=false
  * Specific orders queried also return an array of products in the order
